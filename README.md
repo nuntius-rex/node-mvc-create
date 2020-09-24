@@ -51,37 +51,64 @@ Just defined the pattern you want as follows: </p>**
 ```
 const mvcCreate=require("mvccreate");
 
+//Define dev-dependencies as an object:
 userDevDepsObj={
   "mvccreate": "^1.0.7",
   "nodemon": "^2.0.4"
 }
 
+//Define regular dependencies as an object:
 userDepsObj={
   "express": "^4.16.3",
   "express-es6-template-engine": "^2.2.3"
 }
 
+//Define a folder structure:
 userDirs=[
   "public",
   "public/images",
   "public/js",
   "public/css",
+  "funny",
   "views",
   "controllers",
   "models"
 ];
 
+//Define files matching the folder structure:
 userFiles=[
   "main.js",
   "router.js",
   "utils.js",
+  "weird.js",
   "views/index.html",
   "models/homeModel.js",
   "controllers/homeController.js",
   "README.md"
 ];
 
-mvcCreate.mvcCreate(userDevDepsObj, userDepsObj, userDirs);
+//Feed these to mvcCreate for breakfast
+mvcCreate.mvcCreate(userDevDepsObj, userDepsObj, userDirs, userFiles);
+
+
+```
+<p>You can also just inject specifics you would like to replace.
+For example if you just wanted to replace userFiles:
+</p>
+
+```
+userFiles=[
+  "main.js",
+  "router.js",
+  "utils.js",
+  "weird.js",
+  "views/index.html",
+  "models/homeModel.js",
+  "controllers/homeController.js",
+  "README.md"
+];
+mvcCreate.mvcCreate("", "", "", userFiles);
+
 ```
 
 ## PROMPT

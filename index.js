@@ -46,11 +46,11 @@ var pkg={
   }
 }
 
-if(userDepsObj!==undefined){
+if(userDepsObj!==undefined && userDepsObj!==""){
   pkg.dependencies=userDepsObj;
 }
 
-if(userDevDepsObj!==undefined){
+if(userDevDepsObj!==undefined && userDevDepsObj!==""){
   pkg.devDependencies=userDevDepsObj;
 }
 
@@ -95,7 +95,7 @@ See the doc page to learn how to customize for your needs!)
         "models"
       ];
 
-      if(userDirs!==undefined){
+      if(userDirs!==undefined && userDirs!==""){
         dirs=userDirs;
       }
 
@@ -135,7 +135,7 @@ ${directories}
         "README.md"
       ];
 
-      if(userFiles!==undefined){
+      if(userFiles!==undefined  && userFiles!==""){
         filesMVC=userFiles;
       }
 
