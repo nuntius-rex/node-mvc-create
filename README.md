@@ -13,17 +13,17 @@ npm i mvccreate
 ## Recommended Usage
 
 <p>This module is intended to be a one time 'run-and-done' step at the beginning of a project.
-The code has been update to help prevent files being overwritten, but YOU SHOULD NOT run this module on an existing project.
+The code has been updated to help prevent files being overwritten, but YOU SHOULD NOT run this module on an existing project.
 </p>
 
-<p>It is recommended that you create an install.js script and that you should not leave this script active on your main script!!! When you run the module, the default settings will set mvcCreate as a dev dependency. This module should never be ran in production.</p>
+<p>It is recommended that you create an install.js script (do not use your main file). When you run the module, the default settings will set mvcCreate as a dev dependency. This module should never be ran in production.</p>
 
 ```
 const mvcCreate=require("mvccreate");
 mvcCreate.mvcCreate();
 ```
 
->**<p>Note: This will create all of the folders and files, with the option of creating a package.json. <br>
+>**<p>Note: This will create all of the folders and files, with the option of creating a package.json.
 Here is what the default tree will look like:</p>**
 
 ```
@@ -45,8 +45,7 @@ Here is what the default tree will look like:</p>**
 ## CUSTOMIZATION
 
 >**<p>What if you want to build a slightly different MVC pattern or even another structure? No problem.<br>
-The newest version allows you to add your own patterns. <br>
-Just defined the pattern you want as follows: </p>**
+The newest version allows you to add your own patterns. Just defined the pattern you want as follows: </p>**
 
 ```
 const mvcCreate=require("mvccreate");
