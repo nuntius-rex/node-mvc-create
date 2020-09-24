@@ -132,7 +132,8 @@ ${directories}
         "views/index.html",
         "models/homeModel.js",
         "controllers/homeController.js",
-        "README.md"
+        "README.md",
+        ".gitignore"
       ];
 
       if(userFiles!==undefined  && userFiles!==""){
