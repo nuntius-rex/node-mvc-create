@@ -1,23 +1,30 @@
-# MVC Create
+# MVC Create - An MVC Structure Builder
 
-<p>A module script to create a default MVC pattern folder and file structure.</p>
+## PURPOSE
 
-## Install
+<p>A module to create a default MVC pattern folder and file structure.</p>
 
-```bash
+## INSTALL
+
+```
 npm i mvccreate
 ```
 
 ## Recommended Usage
 
-<p style='color:red'>This module is intended to be a one time run-and-done at the beginning of a project, so BE CAREFUL not to run on an existing project. Create the following in an install.js script. Do not leave active on your main script!!!:</p>
+<p>This module is intended to be a one time 'run-and-done' step at the beginning of a project.
+The code has been update to help prevent files being overwritten, but YOU SHOULD NOT run this module on an existing project.
+</p>
+
+<p>It is recommended that you create an install.js script and that you should not leave this script active on your main script!!! When you run the module, the default settings will set mvcCreate as a dev dependency. This module should never be ran in production.</p>
 
 ```
 const mvcCreate=require("mvccreate");
 mvcCreate.mvcCreate();
 ```
 
->**<p>Note: This will create all of the folders and files, including a package.json. Here is what the tree will look like:</p>**
+>**<p>Note: This will create all of the folders and files, with the option of creating a package.json. <br>
+Here is what the default tree will look like:</p>**
 
 ```
 - controllers
@@ -30,15 +37,58 @@ mvcCreate.mvcCreate();
 - views
 - - index.html
 - main.js
-- package.json
+- routes.js
+- util.js
+- package.json (you will be provided an option to customize)
 - README.md
+```
+## CUSTOMIZATION
 
-Some sample script will be written to main.js.
+>**<p>What if you want to build a slightly different MVC pattern or even another structure? No problem.<br>
+The newest version allows you to add your own patterns. <br>
+Just defined the pattern you want as follows: </p>**
+
+```
+const mvcCreate=require("mvccreate");
+
+userDevDepsObj={
+  "mvccreate": "^1.0.7",
+  "nodemon": "^2.0.4"
+}
+
+userDepsObj={
+  "express": "^4.16.3",
+  "express-es6-template-engine": "^2.2.3"
+}
+
+userDirs=[
+  "public",
+  "public/images",
+  "public/js",
+  "public/css",
+  "views",
+  "controllers",
+  "models"
+];
+
+userFiles=[
+  "main.js",
+  "router.js",
+  "utils.js",
+  "views/index.html",
+  "models/homeModel.js",
+  "controllers/homeController.js",
+  "README.md"
+];
+
+mvcCreate.mvcCreate(userDevDepsObj, userDepsObj, userDirs);
 ```
 
 ## PROMPT
 
-<p>When you run, it will ask you if you wish to install dependencies for the project.</p>
-<p>If yes is selected, Express and Nodemon will be installed per the dependencies that were written to package.json.</p>
+<p>When you run the install.js script you created, you will be prompted with options to skip steps if you want. Finally, you will be prompted to create the package.json file. This process is a questionnaire similar to running the command 'npm init' but with a few more options. Finally, you will be given the option to install the dependencies. This step simply runs 'npm install' for you.</p>
 
->**<p style='color:red'>Be sure to modify the package.json removing the dependencies, if you do not intend to use them.</p>**
+
+## VERSIONS npmjs.com
+>1.0.6 - This version was an early development of the process.
+>1.0.7 - This version enabled user defined patterns and a package.json creation process similar to 'npm init' but with more features.
