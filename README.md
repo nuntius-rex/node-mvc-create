@@ -120,5 +120,7 @@ mvcCreate.mvcCreate("", "", "", userFiles);
 
 >2.0.0 - This version enables user defined patterns and a package.json creation process similar to 'npm init' but with more features.
 
+NPM Listing: https://www.npmjs.com/package/mvccreate
+
 ## KNOWN BUGS
 >
