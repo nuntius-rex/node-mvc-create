@@ -60,7 +60,7 @@ if(userDepsObj!==undefined && userDepsObj!==""){
 
 
 var defaultDevDeps={
-  "mvccreate": "^1.0.7",
+  "mvccreate": "*",
   "nodemon": "^2.0.4"
 }
 
