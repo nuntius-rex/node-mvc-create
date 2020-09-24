@@ -91,4 +91,8 @@ mvcCreate.mvcCreate(userDevDepsObj, userDepsObj, userDirs);
 
 ## VERSIONS npmjs.com
 >1.0.6 - This version was an early development of the process.
->1.0.7 - This version enabled user defined patterns and a package.json creation process similar to 'npm init' but with more features.
+
+>1.0.7 - This version enables user defined patterns and a package.json creation process similar to 'npm init' but with more features.
+
+## KNOWN BUGS
+>There is an issue with the display of created directories and files.
