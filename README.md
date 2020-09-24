@@ -95,4 +95,4 @@ mvcCreate.mvcCreate(userDevDepsObj, userDepsObj, userDirs);
 >1.0.7 - This version enables user defined patterns and a package.json creation process similar to 'npm init' but with more features.
 
 ## KNOWN BUGS
->There is an issue with the display of created directories and files.
+>
