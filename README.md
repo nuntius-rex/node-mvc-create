@@ -89,10 +89,10 @@ mvcCreate.mvcCreate(userDevDepsObj, userDepsObj, userDirs);
 <p>When you run the install.js script you created, you will be prompted with options to skip steps if you want. Finally, you will be prompted to create the package.json file. This process is a questionnaire similar to running the command 'npm init' but with a few more options. Finally, you will be given the option to install the dependencies. This step simply runs 'npm install' for you.</p>
 
 
-## VERSIONS npmjs.com
+## NPM VERSIONS npmjs.com
 >1.0.6 - This version was an early development of the process.
 
->1.0.7 - This version enables user defined patterns and a package.json creation process similar to 'npm init' but with more features.
+>2.0.0 - This version enables user defined patterns and a package.json creation process similar to 'npm init' but with more features.
 
 ## KNOWN BUGS
 >
