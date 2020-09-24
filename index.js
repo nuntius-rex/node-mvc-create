@@ -46,12 +46,16 @@ var pkg={
   }
 }
 
-if(userDepsObj!==undefined && userDepsObj!==""){
-  pkg.dependencies=userDepsObj;
+
+var defaultDeps={
+  "express": "^4.16.3",
+  "express-es6-template-engine": "^2.2.3"
 }
 
-if(userDevDepsObj!==undefined && userDevDepsObj!==""){
-  pkg.devDependencies=userDevDepsObj;
+if(userDepsObj!==undefined && userDepsObj!==""){
+  pkg.dependencies=userDepsObj;
+}else{
+  pkg.dependencies=defaultDeps;
 }
 
 
@@ -60,10 +64,13 @@ var defaultDevDeps={
   "nodemon": "^2.0.4"
 }
 
-var defaultDeps={
-  "express": "^4.16.3",
-  "express-es6-template-engine": "^2.2.3"
+if(userDevDepsObj!==undefined && userDevDepsObj!==""){
+  pkg.devDependencies=userDevDepsObj;
+}else{
+  pkg.devDependencies=defaultDevDeps;
 }
+
+
 
 
 //Execute node commands (This is a "generator" pattern, note function* syntax):
