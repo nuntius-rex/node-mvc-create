@@ -1,6 +1,9 @@
-var fs = require('fs');
+const fs = require('fs');
 const path = require('path');
 const child_process = require('child_process');
+//const questions=require('./lib/questions');
+
+//console.log(questions);
 
 exports.mvcCreate=function(userDevDepsObj, userDepsObj, userDirs, userFiles, test){
 
@@ -11,6 +14,7 @@ console.log(`
 // MVC Create - An MVC Structure Builder
 // by Dan Guinn (danguinn.com)
 // https://www.npmjs.com/package/mvccreate
+// https://github.com/nuntius-rex/node-mvc-create
 //==================================================
 `);
 
@@ -93,6 +97,7 @@ See the doc page to learn how to customize for your needs!)
       // 1) MVC directory pattern:
       //=================================
       var dirs=[
+        "config",
         "public",
         "public/images",
         "public/js",
@@ -135,7 +140,6 @@ ${directories}
       var filesMVC=[
         "main.js",
         "router.js",
-        "utils.js",
         "views/index.html",
         "models/homeModel.js",
         "controllers/homeController.js",
@@ -295,32 +299,36 @@ ${pkgJSONDisplay}
               }
             });
 
-            //only ask this question if package.json is created:
-            l = yield rl.question(`Would you like to install dependencies now? (npm install)
-Note: This process also formats the package.json: [y,n] `, r=>buildCommands.next(r));
-            if(l=='y'){
-              child_process.execSync('npm install');
-              console.log(closeMSG);
-              rl.close();
-            }else{
-              //All other entries, end process:
-              console.log(closeMSG);
-              rl.close();
-            }
-
-
-
-          }else{
-            //All other entries, end process:
-            console.log(closeMSG);
-            rl.close();
           }//end "write this package.json now?"
 
+        }// End "like to create a package.json?"
 
-      }else{
-        console.log(closeMSG);
-        rl.close();
-      }// End "like to create a package.json?"
+          try {
+            if (fs.existsSync("package.json")) {
+              //only ask this question if package.json exist:
+              l = yield rl.question(`Would you like to install dependencies now? (npm install)
+Note: This process also formats the package.json if newly created: [y,n] `, r=>buildCommands.next(r));
+              if(l=='y'){
+                child_process.execSync('npm install');
+                console.log(closeMSG);
+                rl.close();
+              }else{
+                //All other entries, end process:
+                console.log(closeMSG);
+                rl.close();
+              }
+            }
+          } catch(err) {
+            console.error(err)
+          }
+
+
+
+
+
+
+
+
 
     })()
 
