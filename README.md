@@ -44,6 +44,17 @@ Here is what the default tree will look like:</p>**
 - README.md
 - .gitignore
 ```
+### Hint
+
+<p>The following can be used to setup the basics quickly from the command line or script:</p>
+
+```
+npm i mvccreate
+echo const mvcCreate=require("mvccreate"); >install.js
+echo mvcCreate.mvcCreate(); >>install.js
+node install.js
+```
+
 ## CUSTOMIZATION
 
 >**<p>What if you want to build a slightly different MVC pattern or even another structure? No problem.

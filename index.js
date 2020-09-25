@@ -1,9 +1,6 @@
 const fs = require('fs');
 const path = require('path');
 const child_process = require('child_process');
-//const questions=require('./lib/questions');
-
-//console.log(questions);
 
 exports.mvcCreate=function(userDevDepsObj, userDepsObj, userDirs, userFiles, test){
 
